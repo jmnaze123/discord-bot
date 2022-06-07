@@ -1,2 +1,2 @@
 # gary
-Discord Bot made with Python
+Discord Bot made with Python 🐍
