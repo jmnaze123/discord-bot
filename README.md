@@ -1,2 +1,2 @@
 # gary
-Discord Bot made with JavaScript
+Discord Bot made with TypeScript
