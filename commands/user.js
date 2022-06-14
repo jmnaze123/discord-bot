@@ -5,6 +5,7 @@ module.exports = {
 		.setName('user')
 		.setDescription('Display info about yourself.'),
 	async execute(interaction) {
+
 		return interaction.reply({
 			content: `Your username: ${interaction.user.username}\nYour ID: ${interaction.user.id}`,
 			ephemeral: true,
