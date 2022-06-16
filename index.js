@@ -2,6 +2,7 @@ const fs = require('node:fs');
 const path = require('node:path');
 const { Client, Collection, Intents } = require('discord.js');
 const { token } = require('./config.json');
+const { testing } = require('./config.json');
 const { Player } = require("discord-player")
 
 const client = new Client({ intents: [
@@ -58,42 +59,8 @@ client.on('interactionCreate', async interaction => {
 });
 
 client.on('messageCreate', msg => {
-	if (msg.content.toLowerCase().includes('i love gary') ||
-	msg.content.toLowerCase().includes('i love you gary')) {
-		msg.channel.send(`I LOVE YOU TOO ${msg.author}!!`);
-	}
-
-	if (msg.content.toLowerCase().includes('i dont love gary') || 
-	msg.content.toLowerCase().includes('i don\'t love gary') ||
-	msg.content.toLowerCase().includes('i hate gary')) {
-		msg.channel.send(`${msg.author} WHY!!! :(`);
-	}
-
-	if (msg.content.toLowerCase().includes('i wanna die') ||
-	msg.content.toLowerCase().includes('i want to kms') ||
-	msg.content.toLowerCase().includes('i want to kill myself') ||
-	msg.content.toLowerCase().includes('i wanna kms') ||
-	msg.content.toLowerCase().includes('i wanna kill myself') ||
-	msg.content.toLowerCase().includes('i want to die')) {
-		msg.channel.send(`NOOOOOO!!!!!!!`);
-	}
-
-	if (msg.content.toLowerCase().includes('hi gary') ||
-	msg.content.toLowerCase().includes('hey gary') ||
-	msg.content.toLowerCase().includes('heyy gary') ||
-	msg.content.toLowerCase().includes('heyyy gary') ||
-	msg.content.toLowerCase().includes('heyyyy gary') ||
-	msg.content.toLowerCase().includes('heyyyyy gary') ||
-	msg.content.toLowerCase().includes('heyyyyyy gary') ||
-	msg.content.toLowerCase().includes('heyyyyyyy gary') ||
-	msg.content.toLowerCase().includes('heyyyyyyyy gary') ||
-	msg.content.toLowerCase().includes('hello gary')) {
+	if (hi(msg.content.toLowerCase())) {
 		msg.channel.send(`heyyy ${msg.author}!!!!!!!`);
-	}
-
-	if (msg.content.toLowerCase().includes('gary wyd') ||
-	msg.content.toLowerCase().includes('wyd gary')){
-			msg.channel.send(`j chillin 😎`);
 	}
 
 	if (msg.content.toLowerCase() === 'nice' && msg.author.id != '983747464458797096'){
@@ -102,3 +69,11 @@ client.on('messageCreate', msg => {
 });
 
 client.login(token);
+
+function hi(message) {
+	return (
+		message.includes('hi') && 
+		message.includes('gary') && 
+		((message.indexOf('gary') - message.indexOf('hi')) >= 0)
+	);
+}
