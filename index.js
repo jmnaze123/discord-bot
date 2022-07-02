@@ -58,22 +58,4 @@ client.on('interactionCreate', async interaction => {
 	}
 });
 
-client.on('messageCreate', msg => {
-	if (hi(msg.content.toLowerCase())) {
-		msg.channel.send(`heyyy ${msg.author}!!!!!!!`);
-	}
-
-	if (msg.content.toLowerCase() === 'nice' && msg.author.id != '983747464458797096'){
-			msg.channel.send(`nice`);
-	}
-});
-
 client.login(token);
-
-function hi(message) {
-	return (
-		message.includes('hi') && 
-		message.includes('gary') && 
-		((message.indexOf('gary') - message.indexOf('hi')) >= 0)
-	);
-}
